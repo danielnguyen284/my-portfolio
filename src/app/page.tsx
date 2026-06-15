@@ -29,6 +29,14 @@ export default function Home() {
   const [language, setLanguage] = useState<'EN' | 'VI'>('VI');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -231,10 +239,10 @@ export default function Home() {
 
               <motion.img
                 alt="Professional portrait"
-                className="w-full h-full object-cover opacity-90 md:hover:filter-none transition-all duration-700"
+                className={`w-full h-full object-cover opacity-90 ${!isMobile ? "grayscale hover:grayscale-0 transition-all duration-700" : ""}`}
                 src="/avatar.jpg"
-                initial={{ filter: "grayscale(100%)" }}
-                whileInView={{ filter: "grayscale(0%)" }}
+                initial={isMobile ? { filter: "grayscale(100%)" } : undefined}
+                whileInView={isMobile ? { filter: "grayscale(0%)" } : undefined}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
               />
@@ -573,11 +581,11 @@ export default function Home() {
             >
               <div className="relative aspect-[16/9] overflow-hidden border border-outline-variant/20 bg-surface-container-high">
                 <motion.img
-                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                  className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ${!isMobile ? "grayscale group-hover:grayscale-0" : ""}`}
                   src={project.img}
                   alt={project.title}
-                  initial={{ filter: "grayscale(100%)" }}
-                  whileInView={{ filter: "grayscale(0%)" }}
+                  initial={isMobile ? { filter: "grayscale(100%)" } : undefined}
+                  whileInView={isMobile ? { filter: "grayscale(0%)" } : undefined}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 1.0, ease: "easeOut" }}
                 />
