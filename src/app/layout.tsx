@@ -21,10 +21,25 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NGUYEN VIET DUNG | Technical Partner & AI Integrator",
-  description: "Portfolio of Nguyen Viet Dung, an expert Technical Partner & AI Integrator. I build, manage, and scale end-to-end web ecosystems powered by modern AI.",
+  title: "NGUYỄN VIẾT DŨNG | Senior Fullstack Developer & AI Integrator",
+  description: "Portfolio của Nguyễn Viết Dũng - Chuyên gia phát triển giải pháp phần mềm fullstack và tích hợp AI. Cam kết code sạch, kiến trúc vững chắc và dễ mở rộng.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.png",
+  },
+  openGraph: {
+    title: "NGUYỄN VIẾT DŨNG | Senior Fullstack Developer & AI Integrator",
+    description: "Portfolio của Nguyễn Viết Dũng - Chuyên gia phát triển giải pháp phần mềm fullstack và tích hợp AI. Cam kết code sạch, kiến trúc vững chắc và dễ mở rộng.",
+    siteName: "Nguyễn Viết Dũng Portfolio",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "NGUYỄN VIẾT DŨNG | Portfolio Preview",
+      },
+    ],
+    locale: "vi_VN",
+    type: "website",
   },
 };
 
