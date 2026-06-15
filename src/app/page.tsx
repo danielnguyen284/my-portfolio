@@ -572,10 +572,14 @@ export default function Home() {
               className={`group cursor-pointer ${project.offset ? "md:mt-24" : ""}`}
             >
               <div className="relative aspect-[16/9] overflow-hidden border border-outline-variant/20 bg-surface-container-high">
-                <img
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                <motion.img
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                   src={project.img}
                   alt={project.title}
+                  initial={{ filter: "grayscale(100%)" }}
+                  whileInView={{ filter: "grayscale(0%)" }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 1.0, ease: "easeOut" }}
                 />
                 <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                   <a href={project.link} target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-primary text-background text-label-sm uppercase hover:bg-primary/90 transition-colors">
