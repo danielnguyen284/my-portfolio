@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 import {
   Terminal,
   Code,
@@ -30,6 +30,31 @@ export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(timer);
+          setTimeout(() => setIsLoading(false), 300);
+          return 100;
+        }
+        const diff = Math.floor(Math.random() * 8) + 4;
+        return Math.min(prev + diff, 100);
+      });
+    }, 50);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -148,15 +173,60 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-transparent text-on-surface">
-      {/* TopNavBar */}
-      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/20 flex justify-between items-center px-margin-page h-24">
-        <div className="flex items-center gap-4">
-          <Terminal className="text-primary w-8 h-8" />
-          <h1 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg tracking-tighter text-primary uppercase">
-            {translations[language].hero.name}
-          </h1>
-        </div>
+    <>
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ 
+              y: "-100%",
+              transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } 
+            }}
+            className="fixed inset-0 z-[9999] bg-[#131313] flex flex-col items-center justify-center select-none"
+          >
+            {/* Tech grid for loader background */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-40 pointer-events-none" />
+            
+            <div className="relative z-10 flex flex-col items-center gap-8">
+              {/* Glowing tag logo */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="font-mono text-5xl md:text-7xl font-bold text-primary tracking-tighter"
+                style={{ textShadow: "0 0 30px rgba(186,230,13,0.3)" }} // glowing green-lime primary color shadow
+              >
+                {"<NVD/>"}
+              </motion.div>
+              
+              {/* Progress info */}
+              <div className="w-64 flex flex-col items-center gap-3 mt-4">
+                <div className="flex justify-between w-full font-mono text-sm text-on-surface-variant">
+                  <span className="uppercase tracking-widest text-xs">Loading System</span>
+                  <span className="text-primary font-bold">{progress}%</span>
+                </div>
+                {/* Minimalist loading bar */}
+                <div className="h-[2px] w-full bg-outline-variant/20 overflow-hidden relative rounded-full">
+                  <motion.div
+                    className="h-full bg-primary absolute left-0 top-0 bottom-0"
+                    style={{ width: `${progress}%` }}
+                    transition={{ ease: "easeOut" }}
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className="bg-transparent text-on-surface">
+        {/* TopNavBar */}
+        <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/20 flex justify-between items-center px-margin-page h-24">
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-2xl md:text-3xl font-extrabold text-primary select-none tracking-tighter">
+              {"<NVD/>"}
+            </span>
+          </div>
         <div className="hidden md:flex items-center gap-12">
           {(["about", "skills", "experience", "projects", "contact"] as const).map((item) => (
             <Link
@@ -729,5 +799,6 @@ export default function Home() {
         </button>
       </div>
     </div>
+    </>
   );
 }
