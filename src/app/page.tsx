@@ -140,7 +140,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-background text-on-surface">
+    <div className="bg-transparent text-on-surface">
       {/* TopNavBar */}
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/20 flex justify-between items-center px-margin-page h-24">
         <div className="flex items-center gap-4">
@@ -303,7 +303,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-section-gap px-margin-page bg-surface-container-lowest border-t border-outline-variant/20" id="skills">
+      <section className="py-section-gap px-margin-page bg-transparent border-t border-outline-variant/20" id="skills">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -350,7 +350,7 @@ export default function Home() {
       </section>
 
       {/* Experience & Education Section */}
-      <section className="py-section-gap px-margin-page bg-background border-t border-outline-variant/20" id="experience">
+      <section className="py-section-gap px-margin-page bg-transparent border-t border-outline-variant/20" id="experience">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
           
           {/* Education */}
@@ -480,7 +480,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-section-gap px-margin-page bg-surface-container-lowest border-t border-outline-variant/20" id="projects">
+      <section className="py-section-gap px-margin-page bg-transparent border-t border-outline-variant/20" id="projects">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -599,7 +599,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-section-gap px-margin-page bg-background border-t border-outline-variant/20" id="contact">
+      <section className="py-section-gap px-margin-page bg-transparent border-t border-outline-variant/20" id="contact">
         <motion.div
           initial="hidden"
           whileInView="visible"
