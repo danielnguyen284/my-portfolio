@@ -226,7 +226,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 w-full items-center gap-stack-lg z-10">
           {/* Image Area */}
-          <div className="md:col-span-5 relative flex justify-center order-2 md:order-1">
+          <div className="md:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-[400px] aspect-[3/4]">
               <img
                 alt="Professional portrait"
@@ -251,7 +251,7 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="md:col-span-7 flex flex-col items-start order-1 md:order-2"
+            className="md:col-span-7 flex flex-col items-start"
           >
             <h2 className="font-display-lg text-[64px] md:text-display-lg leading-none text-primary uppercase tracking-widest">
               {translations[language].hero.role1}
