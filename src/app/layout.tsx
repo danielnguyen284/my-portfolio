@@ -22,14 +22,14 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio.danielnguyen.id.vn"),
-  title: "NGUYỄN VIẾT DŨNG | Senior Fullstack Developer & AI Integrator",
-  description: "Portfolio của Nguyễn Viết Dũng - Chuyên gia phát triển giải pháp phần mềm fullstack và tích hợp AI. Cam kết code sạch, kiến trúc vững chắc và dễ mở rộng.",
+  title: "NGUYỄN VIẾT DŨNG | Fullstack Developer",
+  description: "Portfolio cá nhân của Nguyễn Viết Dũng - Fullstack Developer. Giới thiệu các dự án, kinh nghiệm làm việc và kỹ năng lập trình.",
   icons: {
     icon: "/icon.png",
   },
   openGraph: {
-    title: "NGUYỄN VIẾT DŨNG | Senior Fullstack Developer & AI Integrator",
-    description: "Portfolio của Nguyễn Viết Dũng - Chuyên gia phát triển giải pháp phần mềm fullstack và tích hợp AI. Cam kết code sạch, kiến trúc vững chắc và dễ mở rộng.",
+    title: "NGUYỄN VIẾT DŨNG | Fullstack Developer",
+    description: "Portfolio cá nhân của Nguyễn Viết Dũng - Fullstack Developer. Giới thiệu các dự án, kinh nghiệm làm việc và kỹ năng lập trình.",
     siteName: "Nguyễn Viết Dũng Portfolio",
     images: [
       {
