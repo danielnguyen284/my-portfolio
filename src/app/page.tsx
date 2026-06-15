@@ -228,10 +228,15 @@ export default function Home() {
           {/* Image Area */}
           <div className="md:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-[400px] aspect-[3/4]">
-              <img
+
+              <motion.img
                 alt="Professional portrait"
-                className="w-full h-full object-cover grayscale opacity-90 transition-all duration-700 hover:grayscale-0"
+                className="w-full h-full object-cover opacity-90 md:hover:filter-none transition-all duration-700"
                 src="/avatar.jpg"
+                initial={{ filter: "grayscale(100%)" }}
+                whileInView={{ filter: "grayscale(0%)" }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
               />
               <div className="absolute -inset-4 border border-outline-variant/30 -z-10"></div>
             </div>
