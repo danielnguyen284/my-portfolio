@@ -223,9 +223,10 @@ export default function Home() {
         {/* TopNavBar */}
         <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/20 flex justify-between items-center px-margin-page h-24">
           <div className="flex items-center gap-4">
-            <span className="font-mono text-2xl md:text-3xl font-extrabold text-primary select-none tracking-tighter">
-              {"<NVD/>"}
-            </span>
+            <Terminal className="text-primary w-8 h-8" />
+            <h1 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg tracking-tighter text-primary uppercase">
+              {translations[language].hero.name}
+            </h1>
           </div>
         <div className="hidden md:flex items-center gap-12">
           {(["about", "skills", "experience", "projects", "contact"] as const).map((item) => (
