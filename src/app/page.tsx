@@ -622,7 +622,7 @@ export default function Home() {
                 VI: "Hệ thống chuyên cung cấp giải pháp chuyển đổi số và tối ưu hóa doanh nghiệp bằng các hệ thống sales & lead generation hiệu quả. Tích hợp hệ thống Blog và đặt lịch họp thông minh",
                 EN: "Specialized system providing digital transformation and business optimization solutions through effective sales & lead generation systems. Integrated with a Blog system and smart meeting scheduling."
               }[language],
-              link: "https://evit-org.vercel.app/",
+              link: "https://evitconsulting.com/",
               deployTech: "Vercel",
               img: "/projects/evit.png",
             },
